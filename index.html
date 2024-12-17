@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Coins MiniApp</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            font-size: 1.5em;
+        }
+
+        .circle {
+            margin: 30px auto;
+            width: 150px;
+            height: 150px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .circle:hover {
+            background-color: #FFC107;
+        }
+
+        .sections {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .section {
+            text-align: center;
+        }
+
+        .section img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .section p {
+            margin: 5px 0 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>Daily Coins MiniApp</header>
+
+    <!-- Circle in the Center -->
+    <div class="circle" onclick="collectCoins()">+1 Coin</div>
+    <p id="coin-counter">Coins Collected: 0</p>
+
+    <!-- Bottom Sections -->
+    <div class="sections">
+        <!-- Referral Section -->
+        <div class="section">
+            <img src="https://img.icons8.com/ios-filled/50/4CAF50/share.png" alt="Referral">
+            <p>Invite Friends</p>
+            <button onclick="copyReferral()">Copy Link</button>
+        </div>
+
+        <!-- Cards Section -->
+        <div class="section">
+            <img src="https://img.icons8.com/ios-filled/50/4CAF50/cards.png" alt="Cards">
+            <p>Daily Cards</p>
+            <button onclick="showDailyCard()">Show</button>
+        </div>
+
+        <!-- Airdrop Section -->
+        <div class="section">
+            <img src="https://img.icons8.com/ios-filled/50/4CAF50/rocket.png" alt="Airdrop">
+            <p>Airdrop</p>
+            <button onclick="joinAirdrop()">Join</button>
+        </div>
+
+        <!-- Tap to Collect Section -->
+        <div class="section">
+            <img src="https://img.icons8.com/ios-filled/50/4CAF50/coins.png" alt="Coins">
+            <p>Collect Coins</p>
+            <button onclick="collectCoins()">Tap</button>
+        </div>
+    </div>
+
+    <script>
+        let coins = 0;
+
+        function collectCoins() {
+            coins++;
+            document.getElementById('coin-counter').innerText = "Coins Collected: " + coins;
+            alert("You collected 1 coin!");
+        }
+
+        function copyReferral() {
+            const referralLink = "https://your-miniapp.com/ref?code=12345";
+            navigator.clipboard.writeText(referralLink).then(() => {
+                alert("Referral link copied to clipboard!");
+            });
+        }
+
+        function showDailyCard() {
+            const cards = ["Double XP", "Extra Coins", "Free Spin", "Special Bonus"];
+            const randomCard = cards[Math.floor(Math.random() * cards.length)];
+            alert("Today's Card: " + randomCard);
+        }
+
+        function joinAirdrop() {
+            alert("You have successfully joined the Airdrop!");
+        }
+    </script>
+</body>
+</html>
